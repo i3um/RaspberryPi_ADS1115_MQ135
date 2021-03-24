@@ -44,24 +44,18 @@ class MQ135(object):
 
 
     def get_ppm(self, ad3, pin):
-        """Returns the ppm of CO2 sensed (assuming only CO2 in the air)"""
-        return self.PARA * math.pow((self.get_resistance(ad3, pin) / self.RZERO), -self.PARB)
+	return self.PARA * math.pow((self.get_resistance(ad3, pin) / self.RZERO), -self.PARB)
 
 
     def get_corrected_ppm(self, temperature, humidity, ad3):
-        """Returns the ppm of CO2 sensed (assuming only CO2 in the air)
-        corrected for temperature/humidity"""
         return self.PARA * math.pow((self.get_corrected_resistance(temperature, humidity, ad3) / self.RZERO), -self.PARB)
 
 
     def get_rzero(self):
-        """Returns the resistance RZero of the sensor (in kOhms) for calibratioin purposes"""
         return self.get_resistance(ad3, 0) * math.pow((self.ATMOCO2 / self.PARA), (1. / self.PARB))
 
 
     def get_corrected_rzero(self, temperature, humidity, ad3):
-        """Returns the resistance RZero of the sensor (in kOhms) for calibration purposes
-        corrected for temperature/humidity"""
         return self.get_corrected_resistance(temperature, humidity, ad3) * math.pow((self.ATMOCO2 / self.PARA), (1. / self.PARB))
 
 def mq135lib_example():
