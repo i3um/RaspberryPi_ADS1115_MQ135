@@ -66,15 +66,15 @@ def mq135lib_example():
     pin = 0 
   
     while (True):
-        rzero = mq135.get_rzero(ad3)
+	rzero = mq135.get_rzero(ad3)
         corrected_rzero = mq135.get_corrected_rzero(temperature, humidity, ad3)
-	      resistance = mq135.get_resistance(ad3, pin)
-	      ppm = mq135.get_ppm(ad3, pin)
-	      corrected_ppm = mq135.get_corrected_ppm(temperature, humidity, ad3)
-	      print("MQ135 RZero: " + str(rzero) + "\t Corrected RZero: " + str(corrected_rzero) +
+	resistance = mq135.get_resistance(ad3, pin)
+	ppm = mq135.get_ppm(ad3, pin)
+	corrected_ppm = mq135.get_corrected_ppm(temperature, humidity, ad3)
+	print("MQ135 RZero: " + str(rzero) + "\t Corrected RZero: " + str(corrected_rzero) +
               "\t Resistance: " + str(resistance) + "\t PPM: " + str(ppm) +
               "\t Corrected PPM: " + str(corrected_ppm) + "ppm")
-	      time.sleep(0.3)
+	time.sleep(0.3)
 
 
 if __name__ == "__main__":
