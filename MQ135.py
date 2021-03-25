@@ -3,16 +3,16 @@ from MQ135 import MQ135
 from Adafruit_ADS1x15 import ADS1x15
 
 class mq135lib_example(object):
-    """MQ135 lib example"""
+    
     
 
     def __init__(self, pin, temperature, humidity):
         self.temperature = temperature
         self.humidity = humidity
-        self.mq135 = MQ135() # analog PIN
+        self.mq135 = MQ135() 
 
     def pprint(self):
-        """Continuos print of MQ135 values """
+        
 
         while True:
             ad3 = ADS1x15.ADS1115()
